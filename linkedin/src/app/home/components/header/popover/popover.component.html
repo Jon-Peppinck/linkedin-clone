@@ -1,0 +1,41 @@
+<ion-card>
+  <ion-card-header>
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="auto">
+          <ion-avatar>
+            <ion-img src="../../../../../assets/profile-pic.jpg"></ion-img>
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-card-title>Jon Peppinck</ion-card-title>
+          <ion-card-subtitle>Full Stack Developer</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button expand="block" size="small" fill="outline" color="primary"
+      >View Profile</ion-button
+    >
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-card-subtitle color="dark">Account</ion-card-subtitle>
+    <p class="ion-padding-top">Setting & Privacy</p>
+    <p class="ion-padding-top">Help</p>
+    <p class="ion-padding-top">Language</p>
+  </ion-card-content>
+
+  <div class="item-divider"></div>
+
+  <ion-card-content>
+    <ion-card-subtitle color="dark">Manage</ion-card-subtitle>
+    <p class="ion-padding-top">Posts & Activities</p>
+    <p class="ion-padding-top">Job Posting Account</p>
+  </ion-card-content>
+
+  <div class="item-divider"></div>
+
+  <ion-card-content>
+    <p (click)="onSignOut()">Sign Out</p>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,77 @@
+<ion-header class="ion-container ion-no-border">
+  <ion-toolbar>
+    <div class="toolbar-wrapper">
+      <ion-buttons slot="start" class="ion-no-padding">
+        <ion-button>
+          <ion-icon
+            color="primary"
+            class="linkedin-logo"
+            name="logo-linkedin"
+          ></ion-icon>
+        </ion-button>
+        <ion-searchbar
+          color="tertiary"
+          class="ion-hide-lg-down"
+          placeholder="Search"
+        >
+        </ion-searchbar>
+      </ion-buttons>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-end">
+          <ion-col size="auto">
+            <ion-icon name="home"></ion-icon>
+            <div>Home</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="people"></ion-icon>
+            <div>My Network</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="briefcase"></ion-icon>
+            <div>Jobs</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="chatbox-ellipses"></ion-icon>
+            <div>Messaging</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="notifications"></ion-icon>
+            <ion-badge
+              color="danger"
+              style="
+                position: absolute;
+                margin-left: -10px;
+                margin-top: -5px;
+                height: 16px;
+                width: 16px;
+                border-radius: 9999px;
+              "
+            >
+              2
+            </ion-badge>
+            <div>Notifications</div>
+          </ion-col>
+          <ion-col (click)="presentPopover($event)" size="auto">
+            <ion-avatar>
+              <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+            </ion-avatar>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              Me
+              <ion-icon
+                style="font-size: 16px"
+                name="caret-down-outline"
+              ></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-toolbar>
+</ion-header>
