@@ -1,0 +1,35 @@
+ion-card {
+  width: 315px;
+  box-shadow: none;
+  border: 1px solid #e1e1e1;
+}
+
+ion-card-header {
+  padding-bottom: 8px;
+  ion-text {
+    display: flex;
+    justify-content: space-between;
+    ion-icon {
+      background-color: var(--ion-color-medium-shade);
+      color: var(--ion-color-dark-contrast);
+      border-radius: 4px;
+    }
+  }
+  h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+  }
+}
+
+ion-card-content {
+  ion-text h6:not(.first-course) {
+    margin-top: 8px;
+  }
+  h6 {
+    font-weight: 500;
+  }
+  p {
+    margin-left: 16px;
+  }
+}

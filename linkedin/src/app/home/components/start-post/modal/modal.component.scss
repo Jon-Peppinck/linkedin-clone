@@ -1,0 +1,27 @@
+.heading {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ion-button {
+    padding: 0;
+  }
+}
+
+ion-grid ion-button {
+  --border-width: 1px;
+  height: 30px;
+  width: 112px;
+  ion-icon {
+    font-size: 14px;
+  }
+  .view-status {
+    margin: 0 6px;
+  }
+}
+
+.action-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

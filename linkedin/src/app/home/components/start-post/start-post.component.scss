@@ -1,0 +1,32 @@
+ion-card {
+  width: 525px;
+  box-shadow: none;
+  border: 1px solid #e1e1e1;
+}
+
+ion-card-header {
+  display: flex;
+}
+
+ion-avatar {
+  width: 48px;
+  height: 48px;
+}
+
+ion-card-header {
+  ion-button {
+    --border-width: 1px;
+    height: 48px;
+    width: 100%;
+    margin-left: 16px;
+  }
+}
+
+span.ion-text-left {
+  margin-right: auto;
+}
+
+ion-card-content {
+  display: flex;
+  justify-content: space-between;
+}

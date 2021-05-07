@@ -1,0 +1,33 @@
+<ion-card>
+  <ion-card-header>
+    <ion-avatar>
+      <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+    </ion-avatar>
+    <ion-button
+      (click)="presentModal()"
+      shape="round"
+      fill="outline"
+      color="medium"
+    >
+      <span class="ion-text-left">Start a post</span>
+    </ion-button>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button color="medium" fill="clear">
+      <ion-icon color="secondary" name="image-outline"></ion-icon>
+      <ion-text>Photo</ion-text>
+    </ion-button>
+    <ion-button color="medium" fill="clear">
+      <ion-icon color="success" name="play-sharp"></ion-icon>
+      <ion-text>Video</ion-text>
+    </ion-button>
+    <ion-button color="medium" fill="clear">
+      <ion-icon color="warning" name="calendar-outline"></ion-icon>
+      <ion-text>Event</ion-text>
+    </ion-button>
+    <ion-button color="medium" fill="clear">
+      <ion-icon color="danger" name="newspaper-outline"></ion-icon>
+      <ion-text>Write article</ion-text>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
