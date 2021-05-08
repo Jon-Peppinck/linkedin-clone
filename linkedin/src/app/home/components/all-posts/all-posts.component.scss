@@ -1,0 +1,47 @@
+.all-posts-container {
+  display: flex;
+  ion-content {
+    height: calc(100vh - 320px);
+    ion-list {
+      background-color: #f3f2ef;
+      padding-top: 0;
+    }
+    ion-card {
+      box-shadow: none;
+      border: 1px solid #e1e1e1;
+      width: 518px;
+      .full-name {
+        font-weight: 500;
+      }
+      .role {
+        font-size: 12px;
+        margin-top: 2px;
+        margin-bottom: 1px;
+      }
+      .meta-data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        width: 80px;
+      }
+      ion-icon[name="ellipse"] {
+        font-size: 4px;
+      }
+      .post-body {
+        margin: 0;
+        padding: 0 16px;
+      }
+    }
+    ion-avatar {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  .hide-scroll {
+    height: calc(100vh - 320px);
+    margin-left: -16px;
+    border-right: 16px solid #f3f2ef;
+    z-index: 2;
+  }
+}
