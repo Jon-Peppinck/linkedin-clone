@@ -2,6 +2,18 @@ ion-card {
   width: 525px;
   box-shadow: none;
   border: 1px solid #e1e1e1;
+  @media (max-width: 576px) {
+    width: 500px;
+  }
+  @media (max-width: 525px) {
+    width: 420px;
+  }
+  @media (max-width: 440px) {
+    width: 340px;
+  }
+  @media (max-width: 360px) {
+    width: 280px;
+  }
 }
 
 ion-card-header {
