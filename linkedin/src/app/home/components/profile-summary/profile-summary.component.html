@@ -1,9 +1,18 @@
 <ion-card>
-  <div class="backdrop">
-    <div class="background-one"></div>
-    <div class="half-ellipse"></div>
-    <div class="background-two"></div>
-    <div class="background-three"></div>
+  <div [style.background]="bannerColors.colorTwo" class="backdrop">
+    <div
+      [style.background]="bannerColors.colorOne"
+      class="background-one"
+    ></div>
+    <div [style.background]="bannerColors.colorOne" class="half-ellipse"></div>
+    <div
+      [style.background]="bannerColors.colorTwo"
+      class="background-two"
+    ></div>
+    <div
+      [style.background]="bannerColors.colorThree"
+      class="background-three"
+    ></div>
   </div>
   <ion-card-header class="ion-text-center">
     <ion-avatar class="ion-margin-auto">

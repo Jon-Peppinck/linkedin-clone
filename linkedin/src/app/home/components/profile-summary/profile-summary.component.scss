@@ -7,25 +7,20 @@ ion-card {
 .backdrop {
   height: 54px;
   display: flex;
-  background-color: #dbe7e9;
   .background-one {
-    background-color: #a0b4b7;
     width: 170px;
     height: 100%;
   }
   .half-ellipse {
     border-radius: 0 100% 100% 0 / 50%;
-    background-color: #a0b4b7;
     width: 3px;
     height: 100%;
   }
   .background-two {
-    background-color: #dbe7e9;
     width: 27px;
     height: 100%;
   }
   .background-three {
-    background-color: #bfd3d6;
     width: 25px;
     height: 100%;
   }
