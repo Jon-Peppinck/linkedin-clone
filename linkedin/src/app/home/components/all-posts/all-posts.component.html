@@ -18,6 +18,24 @@
                 <ion-icon color="dark" name="globe-outline"></ion-icon>
               </div>
             </ion-col>
+            <ion-col
+              *ngIf="(userId$ | async) === post.author.id"
+              style="margin-top: -32px"
+              class="ion-text-right"
+            >
+              <ion-icon
+                (click)="presentUpdateModal(post.id)"
+                style="font-size: 18px; cursor: pointer"
+                color="dark"
+                name="create-outline"
+              ></ion-icon>
+              <ion-icon
+                (click)="deletePost(post.id)"
+                style="font-size: 18px; cursor: pointer"
+                color="danger"
+                name="trash-outline"
+              ></ion-icon>
+            </ion-col>
           </ion-row>
           <p class="post-body">{{ post.body }}</p>
           <ion-row>
