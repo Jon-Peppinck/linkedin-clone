@@ -1,7 +1,7 @@
 <ion-card>
   <ion-card-header>
     <ion-avatar>
-      <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+      <ion-img *ngIf="userFullImagePath" [src]="userFullImagePath"></ion-img>
     </ion-avatar>
     <ion-button
       (click)="presentModal()"

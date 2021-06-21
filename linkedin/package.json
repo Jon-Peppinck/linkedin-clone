@@ -21,6 +21,7 @@
     "@angular/router": "~11.2.0",
     "@capacitor/core": "2.4.7",
     "@ionic/angular": "^5.5.2",
+    "file-type": "^16.5.0",
     "jwt-decode": "^3.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

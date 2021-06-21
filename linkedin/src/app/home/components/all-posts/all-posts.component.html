@@ -6,11 +6,13 @@
           <ion-row class="ion-align-items-center ion-justify-content-center">
             <ion-col size="auto" class="ion-padding">
               <ion-avatar>
-                <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+                <ion-img [src]="$any(post).fullImagePath"></ion-img>
               </ion-avatar>
             </ion-col>
             <ion-col>
-              <div class="full-name">Jon Peppinck</div>
+              <div class="full-name">
+                {{ post.author.firstName }} {{ post.author.lastName }}
+              </div>
               <div class="role">Full Stack Developer</div>
               <div class="meta-data">
                 1d<ion-icon name="ellipse"></ion-icon> Edited

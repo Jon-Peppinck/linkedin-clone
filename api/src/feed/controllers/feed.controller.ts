@@ -8,6 +8,7 @@ import {
   Put,
   Query,
   Request,
+  Res,
   UseGuards,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
@@ -62,5 +63,11 @@ export class FeedController {
   @Delete(':id')
   delete(@Param('id') id: number): Observable<DeleteResult> {
     return this.feedService.deletePost(id);
+  }
+
+  @Get('image/:fileName')
+  findImageByName(@Param('fileName') fileName: string, @Res() res) {
+    if (!fileName || ['null', '[null]'].includes(fileName)) return;
+    return res.sendFile(fileName, { root: './images' });
   }
 }

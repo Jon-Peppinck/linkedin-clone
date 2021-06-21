@@ -15,10 +15,21 @@
     ></div>
   </div>
   <ion-card-header class="ion-text-center">
-    <ion-avatar class="ion-margin-auto">
-      <ion-img src="../../../../assets/profile-pic.jpg"></ion-img>
+    <input
+      #fileUpload
+      (change)="onFileSelect($event)"
+      style="display: none"
+      type="file"
+    />
+    <ion-avatar
+      (click)="fileUpload.click()"
+      style="cursor: pointer"
+      class="ion-margin-auto"
+    >
+      <ion-img *ngIf="userFullImagePath" [src]="userFullImagePath"></ion-img>
     </ion-avatar>
-    <ion-card-title class="ion-margin-top"> Jon Peppinck </ion-card-title>
+
+    <ion-card-title class="ion-margin-top"> {{ fullName }} </ion-card-title>
     <ion-card-subtitle>Full Stack Developer</ion-card-subtitle>
   </ion-card-header>
 
