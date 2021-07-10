@@ -1,5 +1,3 @@
-import { User } from './user.interface';
-
 export type FriendRequest_Status =
   | 'not-sent'
   | 'pending'
@@ -12,8 +10,8 @@ export interface FriendRequestStatus {
 }
 
 export interface FriendRequest {
-  id?: number;
-  creator?: User;
-  receiver?: User;
+  id: number;
+  creatorId: number;
+  receiverId: number;
   status?: FriendRequest_Status;
 }

@@ -1,16 +1,22 @@
 <ion-card>
-  <div [style.background]="bannerColors.colorTwo" class="backdrop">
+  <div
+    [style.background]="this.bannerColorService.bannerColors.colorTwo"
+    class="backdrop"
+  >
     <div
-      [style.background]="bannerColors.colorOne"
+      [style.background]="this.bannerColorService.bannerColors.colorOne"
       class="background-one"
     ></div>
-    <div [style.background]="bannerColors.colorOne" class="half-ellipse"></div>
     <div
-      [style.background]="bannerColors.colorTwo"
+      [style.background]="this.bannerColorService.bannerColors.colorOne"
+      class="half-ellipse"
+    ></div>
+    <div
+      [style.background]="this.bannerColorService.bannerColors.colorTwo"
       class="background-two"
     ></div>
     <div
-      [style.background]="bannerColors.colorThree"
+      [style.background]="this.bannerColorService.bannerColors.colorThree"
       class="background-three"
     ></div>
   </div>

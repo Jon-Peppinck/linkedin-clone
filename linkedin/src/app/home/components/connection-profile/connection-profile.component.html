@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-card>
+    <div
+      [style.background]="this.bannerColorService.bannerColors.colorTwo"
+      class="backdrop"
+    >
+      <div
+        [style.background]="this.bannerColorService.bannerColors.colorOne"
+        class="background-one"
+      ></div>
+      <div
+        [style.background]="this.bannerColorService.bannerColors.colorOne"
+        class="half-ellipse"
+      ></div>
+      <div
+        [style.background]="this.bannerColorService.bannerColors.colorTwo"
+        class="background-two"
+      ></div>
+      <div
+        [style.background]="this.bannerColorService.bannerColors.colorThree"
+        class="background-three"
+      ></div>
+    </div>
+    <ion-card-header class="ion-text-center">
+      <ion-avatar class="ion-margin-auto">
+        <ion-img *ngIf="user" [src]="$any(user).fullImagePath"></ion-img>
+      </ion-avatar>
+
+      <ion-card-title *ngIf="user" class="ion-text-left">
+        {{ user.firstName }} {{ user.lastName }}</ion-card-title
+      >
+      <ion-card-subtitle class="ion-text-left"
+        >Full Stack Developer</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <ng-container
+        *ngIf="
+          ['not-sent', 'pending', 'waiting-for-current-user-response'].includes(
+            friendRequestStatus
+          )
+        "
+      >
+        <ion-button
+          (click)="addUser()"
+          [disabled]="
+            ['pending', 'waiting-for-current-user-response'].includes(
+              friendRequestStatus
+            )
+          "
+          shape="round"
+          >{{
+            friendRequestStatus === "waiting-for-current-user-response"
+              ? "Accept Request"
+              : "Connect"
+          }}</ion-button
+        >
+        <ion-button fill="outline">
+          <ion-icon slot="start" name="lock-closed"></ion-icon>
+          Message
+        </ion-button>
+        <ion-button fill="outline" shape="round">More</ion-button>
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
