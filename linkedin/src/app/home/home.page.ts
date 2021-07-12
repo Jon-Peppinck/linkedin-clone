@@ -5,12 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  body = '';
-
-  constructor() {}
-
-  onCreatePost(body: string) {
-    this.body = body;
-  }
-}
+export class HomePage {}

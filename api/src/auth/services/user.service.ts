@@ -152,6 +152,7 @@ export class UserService {
     return from(
       this.friendRequestRepository.find({
         where: [{ receiver: currentUser }],
+        relations: ['receiver', 'creator'],
       }),
     );
   }

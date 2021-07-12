@@ -1,13 +1,1 @@
-<app-header></app-header>
-
-<div class="content-container">
-  <app-profile-summary class="ion-hide-xl-down"></app-profile-summary>
-  <div>
-    <app-start-post (create)="onCreatePost($event)"></app-start-post>
-    <div class="item-divider post-divider"></div>
-    <app-all-posts [postBody]="body"></app-all-posts>
-  </div>
-  <app-advertising class="ion-hide-xl-down"></app-advertising>
-</div>
-
-<app-tabs class="ion-hide-md-up"></app-tabs>
+<app-header></app-header> <ion-router-outlet></ion-router-outlet>
