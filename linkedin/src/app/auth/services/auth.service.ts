@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Plugins } from '@capacitor/core';
+import { Storage } from '@capacitor/storage';
 import { BehaviorSubject, from, Observable, of } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 
@@ -143,7 +143,7 @@ export class AuthService {
       .pipe(
         take(1),
         tap((response: { token: string }) => {
-          Plugins.Storage.set({
+          Storage.set({
             key: 'token',
             value: response.token,
           });
@@ -155,7 +155,7 @@ export class AuthService {
 
   isTokenInStorage(): Observable<boolean> {
     return from(
-      Plugins.Storage.get({
+      Storage.get({
         key: 'token',
       })
     ).pipe(
@@ -178,7 +178,7 @@ export class AuthService {
 
   logout(): void {
     this.user$.next(null);
-    Plugins.Storage.remove({ key: 'token' });
+    Storage.remove({ key: 'token' });
     this.router.navigateByUrl('/auth');
   }
 }

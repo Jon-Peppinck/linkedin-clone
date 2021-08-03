@@ -5,7 +5,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Plugins } from '@capacitor/core';
+import { Storage } from '@capacitor/storage';
 import { from, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return from(
-      Plugins.Storage.get({
+      Storage.get({
         key: 'token',
       })
     ).pipe(
