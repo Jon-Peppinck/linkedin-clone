@@ -26,7 +26,7 @@ import {
   FriendRequest,
   FriendRequestStatus,
 } from '../models/friend-request.interface';
-import { User } from '../models/user.interface';
+import { User } from '../models/user.class';
 import { UserService } from '../services/user.service';
 
 @Controller('user')
