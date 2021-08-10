@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { take, tap } from 'rxjs/operators';
+import { catchError, take, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { environment } from 'src/environments/environment';
 import { Post } from '../models/Post';
 
@@ -9,13 +10,16 @@ import { Post } from '../models/Post';
   providedIn: 'root',
 })
 export class PostService {
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private errorHandlerService: ErrorHandlerService
+  ) {
     this.authService
       .getUserImageName()
       .pipe(
         take(1),
         tap(({ imageName }) => {
-          console.log(33, imageName);
           const defaultImagePath = 'blank-profile-picture.png';
           this.authService
             .updateUserImagePath(imageName || defaultImagePath)
@@ -30,7 +34,16 @@ export class PostService {
   };
 
   getSelectedPosts(params) {
-    return this.http.get<Post[]>(`${environment.baseApiUrl}/feed${params}`);
+    return this.http
+      .get<Post[]>(`${environment.baseApiUrl}/feed${params}`)
+      .pipe(
+        tap((posts: Post[]) => {
+          if (posts.length === 0) throw new Error('No posts to retrieve');
+        }),
+        catchError(
+          this.errorHandlerService.handleError<Post[]>('getSelectedPosts', [])
+        )
+      );
   }
 
   createPost(body: string) {

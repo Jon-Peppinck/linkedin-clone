@@ -65,7 +65,6 @@ export class AuthService {
     return this.user$.asObservable().pipe(
       switchMap((user: User) => {
         const doesAuthorHaveImage = !!user?.imagePath;
-        console.log(888, doesAuthorHaveImage, user);
         let fullImagePath = this.getDefaultFullImagePath();
         if (doesAuthorHaveImage) {
           fullImagePath = this.getFullImagePath(user.imagePath);
