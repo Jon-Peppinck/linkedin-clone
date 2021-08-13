@@ -14,13 +14,11 @@ import {
 import { Observable } from 'rxjs';
 import { DeleteResult, UpdateResult } from 'typeorm';
 
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { JwtGuard } from 'src/auth/guards/jwt.guard';
-import { Role } from 'src/auth/models/role.enum';
+import { JwtGuard } from '../../auth/guards/jwt.guard';
 
 import { FeedPost } from '../models/post.interface';
 import { FeedService } from '../services/feed.service';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
+
 import { IsCreatorGuard } from '../guards/is-creator.guard';
 
 @Controller('feed')

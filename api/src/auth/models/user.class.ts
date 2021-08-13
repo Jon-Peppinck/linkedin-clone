@@ -1,5 +1,5 @@
 import { IsEmail, IsString } from 'class-validator';
-import { FeedPost } from 'src/feed/models/post.interface';
+import { FeedPost } from '../../feed/models/post.interface';
 import { Role } from './role.enum';
 
 export class User {
