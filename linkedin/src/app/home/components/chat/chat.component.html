@@ -1,0 +1,17 @@
+<div style="margin: auto; margin-top: 110px">
+  <span>Chat room</span>
+  <p *ngFor="let message of messages">{{ message }}</p>
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input ngModel type="text" name="message" required></ion-input>
+    </ion-item>
+    <ion-button
+      [disabled]="!form.valid"
+      type="submit"
+      shape="round"
+      expand="block"
+    >
+      send message
+    </ion-button>
+  </form>
+</div>
