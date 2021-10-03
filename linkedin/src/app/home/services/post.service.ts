@@ -12,22 +12,8 @@ import { Post } from '../models/Post';
 export class PostService {
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
     private errorHandlerService: ErrorHandlerService
-  ) {
-    this.authService
-      .getUserImageName()
-      .pipe(
-        take(1),
-        tap(({ imageName }) => {
-          const defaultImagePath = 'blank-profile-picture.png';
-          this.authService
-            .updateUserImagePath(imageName || defaultImagePath)
-            .subscribe();
-        })
-      )
-      .subscribe();
-  }
+  ) {}
 
   private httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

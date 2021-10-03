@@ -39,6 +39,7 @@ export class PopoverComponent implements OnInit, OnDestroy {
   async onSignOut() {
     await this.popoverController.dismiss();
     this.authService.logout();
+    location.reload();
   }
 
   ngOnDestroy() {

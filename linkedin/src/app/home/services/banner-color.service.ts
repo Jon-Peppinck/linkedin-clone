@@ -35,6 +35,13 @@ export class BannerColorService {
           colorThree: '#ddadaf',
         };
 
+      case 'user':
+        return {
+          colorOne: '#a0b4b7',
+          colorTwo: '#dbe7e9',
+          colorThree: '#bfd3d6',
+        };
+
       default:
         return this.bannerColors;
     }

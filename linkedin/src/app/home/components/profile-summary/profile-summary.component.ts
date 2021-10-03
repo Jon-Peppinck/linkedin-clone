@@ -5,7 +5,7 @@ import { fromBuffer } from 'file-type/core';
 import { BehaviorSubject, from, of, Subscription } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
 
-import { Role } from 'src/app/auth/models/user.model';
+import { Role, User } from 'src/app/auth/models/user.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { BannerColorService } from '../../services/banner-color.service';
 
@@ -26,6 +26,8 @@ export class ProfileSummaryComponent implements OnInit, OnDestroy {
   userFullImagePath: string;
   private userImagePathSubscription: Subscription;
 
+  private userSubscription: Subscription;
+
   fullName$ = new BehaviorSubject<string>(null);
   fullName = '';
 
@@ -39,22 +41,31 @@ export class ProfileSummaryComponent implements OnInit, OnDestroy {
       file: new FormControl(null),
     });
 
-    this.authService.userRole.pipe(take(1)).subscribe((role: Role) => {
-      this.bannerColorService.bannerColors =
-        this.bannerColorService.getBannerColors(role);
-    });
-
-    this.authService.userFullName
-      .pipe(take(1))
-      .subscribe((fullName: string) => {
-        this.fullName = fullName;
-        this.fullName$.next(fullName);
-      });
-
     this.userImagePathSubscription =
       this.authService.userFullImagePath.subscribe((fullImagePath: string) => {
         this.userFullImagePath = fullImagePath;
       });
+
+    this.userSubscription = this.authService.userStream.subscribe(
+      (user: User) => {
+        if (user?.role) {
+          this.bannerColorService.bannerColors =
+            this.bannerColorService.getBannerColors(user.role);
+        }
+
+        if (user && user?.firstName && user?.lastName) {
+          this.fullName = user.firstName + ' ' + user.lastName;
+          this.fullName$.next(this.fullName);
+        }
+      }
+    );
+
+    // this.authService.userFullName
+    //   .pipe(take(1))
+    //   .subscribe((fullName: string) => {
+    //     this.fullName = fullName;
+    //     this.fullName$.next(fullName);
+    //   });
   }
 
   onFileSelect(event: Event): void {
@@ -98,6 +109,7 @@ export class ProfileSummaryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.userSubscription.unsubscribe();
     this.userImagePathSubscription.unsubscribe();
   }
 }

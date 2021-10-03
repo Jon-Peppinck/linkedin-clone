@@ -1,17 +1,145 @@
-<div style="margin: auto; margin-top: 110px">
-  <span>Chat room</span>
-  <p *ngFor="let message of messages">{{ message }}</p>
-  <form #form="ngForm" (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-input ngModel type="text" name="message" required></ion-input>
-    </ion-item>
-    <ion-button
-      [disabled]="!form.valid"
-      type="submit"
-      shape="round"
-      expand="block"
-    >
-      send message
-    </ion-button>
-  </form>
-</div>
+<ion-card class="container">
+  <div class="select-connection">
+    <div class="top-panel">
+      <div class="heading"><ion-text color="dark">Messaging</ion-text></div>
+      <div>
+        <ion-button
+          style="margin-right: -30px"
+          shape="round"
+          color="dark"
+          fill="clear"
+        >
+          <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="dark" fill="clear">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <div class="friend" *ngFor="let friend of friends">
+      <ion-grid>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="auto">
+            <ion-avatar>
+              <ion-img
+                *ngIf="friend.imagePath; else blankProfilePicture"
+                [src]="
+                  'http://localhost:3000/api/feed/image/' + friend.imagePath
+                "
+              ></ion-img>
+              <ng-template #blankProfilePicture>
+                <ion-img
+                  [src]="
+                    'http://localhost:3000/api/feed/image/blank-profile-picture.png'
+                  "
+                ></ion-img>
+              </ng-template>
+            </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <ion-card-title
+              >{{ friend.firstName }} {{ friend.lastName }}
+            </ion-card-title>
+            <ion-card-subtitle>Full Stack Developer</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="chat">
+    <div class="top-panel">
+      <div class="friend-name-role">
+        <ion-text style="font-weight: 500" color="dark">name lastname</ion-text>
+        <ion-text>Full Stack Developer</ion-text>
+      </div>
+      <div>
+        <ion-button
+          style="margin-right: -30px"
+          shape="round"
+          color="dark"
+          fill="clear"
+        >
+          <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="dark" fill="clear">
+          <ion-icon name="videocam"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <ion-grid class="chat-messages">
+      <ion-row
+        *ngFor="let message of messages"
+        class="ion-align-items-center ion-justify-content-center"
+      >
+        <ion-col size="auto">
+          <ion-avatar>
+            <ion-img
+              *ngIf="userFullImagePath"
+              [src]="userFullImagePath"
+            ></ion-img>
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <p>{{ message }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-textarea
+          ngModel
+          type="text"
+          name="message"
+          placeholder="Write a message..."
+          required
+        ></ion-textarea>
+      </ion-item>
+      <ion-grid>
+        <ion-row class="ion-align-items-center ion-justify-content-between">
+          <span>
+            <ion-button
+              style="margin-right: -20px"
+              shape="round"
+              color="dark"
+              fill="clear"
+            >
+              <ion-icon name="image-outline"></ion-icon>
+            </ion-button>
+            <ion-button
+              style="margin-right: -20px"
+              shape="round"
+              color="dark"
+              fill="clear"
+            >
+              <ion-icon name="document-outline"></ion-icon>
+            </ion-button>
+            <ion-button
+              style="margin-right: -20px"
+              shape="round"
+              color="dark"
+              fill="clear"
+            >
+              <ion-icon name="film-outline"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" color="dark" fill="clear">
+              <ion-icon name="happy-outline"></ion-icon>
+            </ion-button>
+          </span>
+          <span>
+            <ion-button
+              style="width: 55px"
+              [disabled]="!form.valid"
+              type="submit"
+              shape="round"
+            >
+              send
+            </ion-button>
+            <ion-button shape="round" color="dark" fill="clear">
+              <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+            </ion-button>
+          </span>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-card>
