@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import * as bcrypt from 'bcrypt';
 import { from, Observable, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { Repository } from 'typeorm';
 import { UserEntity } from '../models/user.entity';
 import { User } from '../models/user.class';
@@ -98,6 +98,17 @@ export class AuthService {
           // create JWT - credentials
           return from(this.jwtService.signAsync({ user }));
         }
+      }),
+    );
+  }
+
+  getJwtUser(jwt: string): Observable<User | null> {
+    return from(this.jwtService.verifyAsync(jwt)).pipe(
+      map(({ user }: { user: User }) => {
+        return user;
+      }),
+      catchError(() => {
+        return of(null);
       }),
     );
   }

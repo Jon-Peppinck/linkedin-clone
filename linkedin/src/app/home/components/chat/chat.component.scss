@@ -17,10 +17,14 @@
     border-right: 1px solid #e1e1e1;
     .friend {
       border-bottom: 1px solid #e1e1e1;
+      border-left: 4px solid transparent;
       &:hover {
         background-color: #e1e1e1;
         cursor: pointer;
       }
+    }
+    .selected-conversation {
+      border-left: 4px solid green;
     }
   }
 
