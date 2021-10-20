@@ -47,6 +47,16 @@ export class ChatComponent {
   ) {}
 
   ionViewDidEnter() {
+    console.log(
+      123,
+      this.selectedConversationIndex,
+      this.conversations,
+      this.conversation,
+      this.messages,
+      this.friends,
+      this.friend
+    );
+
     this.userImagePathSubscription =
       this.authService.userFullImagePath.subscribe((fullImagePath: string) => {
         this.userFullImagePath = fullImagePath;
@@ -158,6 +168,13 @@ export class ChatComponent {
 
   ionViewDidLeave() {
     this.chatService.leaveConversation();
+
+    this.selectedConversationIndex = 0;
+    this.conversations = [];
+    this.conversation = undefined;
+    this.messages = [];
+    this.friends = [];
+    this.friend = undefined;
 
     this.messagesSubscription.unsubscribe();
     this.userImagePathSubscription.unsubscribe();
