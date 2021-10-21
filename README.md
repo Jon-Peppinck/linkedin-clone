@@ -10,7 +10,7 @@ Prerequisites: NestJS, Angular, and Ionic will need to be installed
 
 > $ npm install
 
-Create a .env file and configure your PostGres environment variables
+Create a .env file and configure your PostGres environment variables:
 
 > POSTGRES_HOST=127.0.0.1
 > POSTGRES_PORT=5432
@@ -23,7 +23,9 @@ Note: For development purposes the host is localhost, but this will need to be u
 
 > $ npm run start:dev
 
-> $ cd ../linkedin
+In a second terminal:
+
+> $ cd linkedin
 
 > $ npm install
 
